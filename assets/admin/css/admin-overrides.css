@@ -1,0 +1,242 @@
+/**
+ * Design Cart Sand Slider
+ * Autor: Paweł Nosko
+ * Firma: Design Cart
+ * Adres: https://www.designcart.pl
+ */
+
+body.dc-sand-slider-admin #wpcontent {
+  padding-left: 0;
+}
+
+body.dc-sand-slider-admin #wpbody-content {
+  padding-bottom: 0;
+}
+
+body.dc-sand-slider-admin .wrap.dc-sand-slider-wrap {
+  margin: 0;
+  max-width: none;
+}
+
+body.dc-sand-slider-admin .wrap.dc-sand-slider-wrap > h1 {
+  display: none;
+}
+
+body.dc-sand-slider-admin #wpbody-content > .notice,
+body.dc-sand-slider-admin #wpbody-content > .updated,
+body.dc-sand-slider-admin #wpbody-content > .error {
+  display: none !important;
+}
+
+.dc-sand-slider-page {
+  min-height: calc(100vh - 32px);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(31, 162, 140, 0.14), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 95% 0%, rgba(28, 167, 202, 0.12), transparent 50%),
+    linear-gradient(180deg, #eef4f3 0%, #f1f5f9 100%);
+  padding-bottom: 3rem;
+}
+
+.dc-sand-slider-page .dc-page__wrap {
+  padding-bottom: 2rem;
+}
+
+.dc-sand-slider-page .dc-hero a {
+  text-decoration: none;
+}
+
+.dc-sand-slider-page .dc-hero__bc a,
+.dc-sand-slider-page .dc-hero a.dc-btn--ghost {
+  color: #fff !important;
+}
+
+.dc-sand-slider-page .dc-hero__bc a:hover {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+.dc-sand-slider-page .dc-hero .dc-btn,
+.dc-sand-slider-page .dc-form-card .dc-btn {
+  height: auto;
+  min-height: 0;
+  box-shadow: none;
+  text-shadow: none;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.dc-sand-slider-page .dc-hero .dc-btn--light,
+.dc-sand-slider-page .dc-hero a.dc-btn--light {
+  color: var(--dc-brand-deep, #0d6b5c) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.dc-sand-slider-page .dc-hero .dc-btn--light:hover,
+.dc-sand-slider-page .dc-hero a.dc-btn--light:hover {
+  color: var(--dc-brand-deep, #0d6b5c) !important;
+  text-decoration: none;
+}
+
+.dc-sand-slider-page .dc-form-card .dc-btn--primary {
+  box-shadow: 0 8px 24px var(--dc-brand-glow, rgba(31, 162, 140, 0.35));
+}
+
+.dc-sand-slider-flash {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 1.25rem 1.75rem 0;
+  padding: 0.95rem 1.15rem;
+  border-radius: 12px;
+  background: rgba(31, 162, 140, 0.12);
+  border: 1px solid rgba(31, 162, 140, 0.28);
+  color: var(--dc-brand-deep, #0d6b5c);
+  font-weight: 600;
+}
+
+.dc-sand-slider-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dc-sand-slider-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--dc-border, #dbe3ea);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.dc-sand-slider-item__main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.dc-sand-slider-item__title {
+  font-size: 1.05rem;
+  color: var(--dc-ink, #0f172a);
+}
+
+.dc-sand-slider-item__shortcode {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  background: var(--dc-surface-2, #f1f5f9);
+  font-size: 12px;
+  color: #334155;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dc-sand-slider-item__meta {
+  color: var(--dc-text-muted, #5c6578);
+  font-size: 0.9rem;
+}
+
+.dc-sand-slider-item__actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.dc-sand-slider-slides {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.dc-sand-slider-slide {
+  border: 1px solid var(--dc-border, #dbe3ea);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.dc-sand-slider-slide__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 0.9rem;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 1px solid var(--dc-border, #dbe3ea);
+}
+
+.dc-sand-slider-slide__handle {
+  cursor: grab;
+  color: #64748b;
+  padding: 0.2rem 0.35rem;
+}
+
+.dc-sand-slider-slide__handle:active {
+  cursor: grabbing;
+}
+
+.dc-sand-slider-slide__label {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.dc-sand-slider-slide__body {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.dc-sand-slider-slide__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.dc-sand-slider-media__preview {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  border: 1px dashed var(--dc-border, #dbe3ea);
+  background: #f8fafc;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  margin-bottom: 0.55rem;
+}
+
+.dc-sand-slider-media__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dc-sand-slider-media__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.dc-sand-slider-slide-placeholder {
+  height: 120px;
+  border: 2px dashed var(--dc-brand, #1fa28c);
+  border-radius: 14px;
+  background: rgba(31, 162, 140, 0.06);
+}
+
+@media (max-width: 780px) {
+  .dc-sand-slider-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dc-sand-slider-slide__body {
+    grid-template-columns: 1fr;
+  }
+}

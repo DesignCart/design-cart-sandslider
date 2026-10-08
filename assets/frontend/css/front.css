@@ -1,0 +1,202 @@
+/**
+ * Design Cart Sand Slider
+ * Autor: Paweł Nosko
+ * Firma: Design Cart
+ * Adres: https://www.designcart.pl
+ */
+
+.dc-sand-slider {
+  --dc-ss-fg: #f3eefc;
+  --dc-ss-muted: rgba(230, 220, 255, 0.72);
+  position: relative;
+  width: 100%;
+  height: var(--dc-ss-height, 70vh);
+  min-height: var(--dc-ss-min-height, 420px);
+  overflow: hidden;
+  background: var(--dc-ss-bg, #050608);
+  color: var(--dc-ss-fg);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.dc-sand-slider__stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.dc-sand-slider__loader {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  background: var(--dc-ss-bg, #050608);
+  transition: opacity 0.5s ease;
+}
+
+.dc-sand-slider__loader.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dc-sand-slider__copy {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.65rem;
+  padding: clamp(1.25rem, 4vw, 2.5rem) 4.5rem;
+  background: radial-gradient(
+    ellipse 70% 55% at 50% 50%,
+    rgba(20, 10, 40, 0.55) 0%,
+    rgba(5, 6, 8, 0.12) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.dc-sand-slider__header,
+.dc-sand-slider__subheader,
+.dc-sand-slider__cta {
+  opacity: 0;
+  transform: translateY(18px) scale(0.94);
+  will-change: opacity, transform;
+}
+
+.dc-sand-slider__copy.is-in .dc-sand-slider__header {
+  animation: dc-ss-copy-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 2.2s forwards;
+}
+
+.dc-sand-slider__copy.is-in .dc-sand-slider__subheader {
+  animation: dc-ss-copy-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 2.5s forwards;
+}
+
+.dc-sand-slider__copy.is-in .dc-sand-slider__cta {
+  animation: dc-ss-copy-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 2.8s forwards;
+}
+
+.dc-sand-slider__copy.is-out .dc-sand-slider__header,
+.dc-sand-slider__copy.is-out .dc-sand-slider__subheader,
+.dc-sand-slider__copy.is-out .dc-sand-slider__cta {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.dc-sand-slider__copy.is-out .dc-sand-slider__header {
+  animation: dc-ss-copy-out 0.42s ease 0s forwards;
+}
+
+.dc-sand-slider__copy.is-out .dc-sand-slider__subheader {
+  animation: dc-ss-copy-out 0.42s ease 0.06s forwards;
+}
+
+.dc-sand-slider__copy.is-out .dc-sand-slider__cta {
+  animation: dc-ss-copy-out 0.42s ease 0.12s forwards;
+}
+
+@keyframes dc-ss-copy-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dc-ss-copy-out {
+  to {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.96);
+  }
+}
+
+.dc-sand-slider__header {
+  margin: 0;
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.55);
+  max-width: 18ch;
+}
+
+.dc-sand-slider__subheader {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  color: var(--dc-ss-muted);
+  line-height: 1.4;
+  max-width: 34ch;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+.dc-sand-slider__header:empty,
+.dc-sand-slider__subheader:empty,
+.dc-sand-slider__cta[hidden] {
+  display: none !important;
+}
+
+.dc-sand-slider__cta {
+  pointer-events: auto;
+  margin-top: 0.55rem;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(196, 181, 253, 0.75);
+  background: linear-gradient(145deg, #7c3aed 0%, #5b21b6 55%, #4c1d95 100%);
+  color: #f5f3ff;
+  text-decoration: none;
+  padding: 0.9rem 1.45rem;
+  font: inherit;
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.25),
+    0 10px 28px rgba(139, 92, 246, 0.45);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.dc-sand-slider__cta:hover {
+  border-color: #ddd6fe;
+  background: linear-gradient(145deg, #8b5cf6 0%, #6d28d9 55%, #5b21b6 100%);
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.4),
+    0 12px 32px rgba(139, 92, 246, 0.55);
+  transform: translateY(-1px);
+}
+
+/* Chrome overrides — CSS vars set inline on .dc-sand-slider */
+.dc-sand-slider .sandslider-nav {
+  border-color: var(--dc-ss-nav-border, #a78bfa);
+  background: color-mix(in srgb, var(--dc-ss-nav-bg, #140a28) 72%, transparent);
+  color: var(--dc-ss-nav-color, #f3eefc);
+}
+
+.dc-sand-slider .sandslider-nav:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--dc-ss-nav-hover-bg, #7c3aed) 72%, transparent);
+  border-color: var(--dc-ss-nav-hover-border, #c4b5fd);
+  color: var(--dc-ss-nav-hover-color, #ffffff);
+}
+
+.dc-sand-slider .sandslider-dots button {
+  background: color-mix(in srgb, var(--dc-ss-pag-dot, #c4b5fd) 55%, transparent);
+}
+
+.dc-sand-slider .sandslider-dots button:hover {
+  background: color-mix(in srgb, var(--dc-ss-pag-dot-hover, #ddd6fe) 85%, transparent);
+}
+
+.dc-sand-slider .sandslider-dots button.active {
+  background: var(--dc-ss-pag-dot-active, #8b5cf6);
+}
+
+@media (max-width: 640px) {
+  .dc-sand-slider__copy {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+  }
+}
